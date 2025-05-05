@@ -68,19 +68,29 @@ sudo apt-get install python3-pip
 git clone https://github.com/scikit-learn/scikit-learn.git
 ```
 
+  >**_Note:_** If this folder already exists, you can skip this step.
+
 2.4 Navigate to the cloned directory:
 ```bash
 cd scikit-learn
 ```
 
+2.4.1 Get the latest from cloned directory:
+```bash
+git pull
+```
+
 2.5 Create a Python virtual environment:
 ```bash
-python3 -m venv threat-hunt-env
+python3 -m venv (your-Initials)-threat-hunt-env # replace (your-Initials) with your initials
 ```
+
+  >**_Note:_** If you have already created a virtual environment, you can skip this step.
+
 
 2.6 Activate the virtual environment:
 ```bash
-source threat-hunt-env/bin/activate
+source (your-Initials)-threat-hunt-env/bin/activate # replace (your-Initials) with your initials
 ```
 
 2.7 Install scikit-learn and dependencies:
@@ -100,9 +110,17 @@ cd ~
 git clone https://github.com/dmlc/xgboost.git
 ```
 
+  >**_Note:_** If this folder already exists, you can skip this step.
+
+2.9.1 Get the latest from cloned directory:
+```bash
+cd xgboost
+git pull
+```
+
 2.10 Confirm the virtual environment is activated; if not, activate it again:
 ```bash
-source ~/scikit-learn/threat-hunt-env/bin/activate
+source ~/scikit-learn/(your-Initials)-threat-hunt-env/bin/activate # replace (your-Initials) with your initials
 ```
 
 2.11 Install XGBoost:
@@ -175,7 +193,7 @@ python SimulateNetworkAttack.py
 
 5.1 Activate your Python virtual environment:
 ```bash
-source ~/scikit-learn/threat-hunt-env/bin/activate
+source ~/scikit-learn/(your-Initials)-threat-hunt-env/bin/activate
 ```
 
 5.2 Obtain `AIThreatHunting.py` from your instructor and ensure it's placed in your home directory.
@@ -186,6 +204,25 @@ python AIThreatHunting.py
 ```
 
 5.4 Analyze outputs from the script to detect anomalies.
+
+![Network Traffic Clustering IP Destination-Source](image-18.png)
+
+This image shows the clustering of network traffic based on IP destination and source. The clusters represent different types of traffic, with the green cluster indicating potential attack traffic.
+
+![Packet Length Distribution](image-19.png)
+
+![Cluster Analysis with Packet Lengths](image-20.png)
+
+5.5 Modify the AIThreatHunting.py script:
+
+Include additional features or visualizations as needed. Below are some options you can try: 
+- Change the AIThreatHunting.py script to use the normal traffic csv file for comparison.
+- Change the script to use your newly generated Attack traffic csv file instead of the existing one.
+- Change the number of clusters in KMeans machine learning algorithm (line 22)
+- Use a Logistic regression algorithm to determine if traffic is normal or anomalous based on the NormalNetworkTraffic.csv file.
+- Use a Random Forest algorithm to determine if traffic is normal or anomalous based on the NormalNetworkTraffic.csv file.
+- Use a Gradient Boosting algorithm to determine if traffic is normal or anomalous based on the NormalNetworkTraffic.csv file.
+
 
 ---
 
