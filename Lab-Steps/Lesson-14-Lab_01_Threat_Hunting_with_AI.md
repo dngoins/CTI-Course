@@ -60,7 +60,7 @@ sudo apt-get update
 
 2.2 Ensure Python and Pip3 are installed:
 ```bash
-sudo apt-get install python3-pip
+sudo apt-get install python3-pip python3-tk
 ```
 
 2.3 Clone the scikit-learn repository:
@@ -95,7 +95,7 @@ source (your-Initials)-threat-hunt-env/bin/activate # replace (your-Initials) wi
 
 2.7 Install scikit-learn and dependencies:
 ```bash
-pip3 install -U scikit-learn pandas matplotlib seaborn
+pip3 install -U scikit-learn pandas matplotlib seaborn notebook ipython
 ```
 
 2.8 Return to the home directory:
@@ -105,25 +105,12 @@ cd ~
 
 #### Gradient Boosting Model Setup
 
-2.9 Clone the XGBoost repository:
-```bash
-git clone https://github.com/dmlc/xgboost.git
-```
-
-  >**_Note:_** If this folder already exists, you can skip this step.
-
-2.9.1 Get the latest from cloned directory:
-```bash
-cd xgboost
-git pull
-```
-
-2.10 Confirm the virtual environment is activated; if not, activate it again:
+2.9 Confirm the virtual environment is activated; if not, activate it again:
 ```bash
 source ~/scikit-learn/(your-Initials)-threat-hunt-env/bin/activate # replace (your-Initials) with your initials
 ```
 
-2.11 Install XGBoost:
+2.10 Install XGBoost:
 ```bash
 pip3 install xgboost
 ```
@@ -143,12 +130,15 @@ wireshark
 
 3.2 Select the `eth0` LAN network interface.
 
-3.3 Capture normal traffic for **1 minute**.
+3.3 Capture normal traffic for **2 minutes**. Try to capture about **1000 - 1500** packets of data. For AI we need data, the more the merrier, but this is a lab, and too much will make your vm run out of space.
 
-3.4 Export captured traffic as CSV:
+3.4 While capturing normal baseline traffic, Open the browser and browse to your favorite news web site. Open your email browser and generate normal network traffic.
+
+3.5 After about 2 minutes, export captured traffic as CSV:
 - `FILE -> Export Packet Dissections -> As CSV`
 - Select all packets.
 - Save as `NormalNetworkTraffic.csv`.
+-- **Keep The Network Traffic Capture running**
 
 ---
 
@@ -158,7 +148,7 @@ wireshark
 
 **Steps:**
 
-4.1 Obtain the provided `SimulateNetworkAttack.py` file and copy it into your home directory.
+4.1 Obtain the provided `SimulateNetworkAttack.py` file from your instructor or the CTI-Labs folder and copy it into your home directory.
 
 4.2 Identify the IP address:
 ```bash
@@ -169,15 +159,17 @@ ifconfig
 4.3 Edit `SimulateNetworkAttack.py`:
 - Replace the placeholder `target_ip` with your identified IP address.
 
-4.4 Run the simulation (for about 5 seconds initially):
+4.4 Run the simulation (for about 1 minute initially):
 ```bash
 python SimulateNetworkAttack.py
 ```
 
-4.5 While running, capture traffic with Wireshark:
-- Stop the script with `CTRL+C` after a short burst (5–10 seconds).
-- Allow Wireshark and VM performance to stabilize between bursts.
-- Repeat bursts until you capture about 600–1000 packets.
+4.5 While still running, capture traffic with Wireshark:
+- Stop the **SimulateNetworkAttack** script with `CTRL+C`. 
+- Then after a short time (5–10 seconds), start the script again to simulate a burst of attacks again.
+- When running the Simulation, it's possible the VM performance will overload.
+- Stop the script to allow Wireshark and VM performance to stabilize between bursts.
+- Repeat bursts until you capture about 1000-1500 packets, or about 1-2 minutes of traffic. Try to match the number of packets captured during the normal baseline capture.
 
 4.6 Save captured traffic as CSV:
 - `FILE -> Export Packet Dissections -> As CSV`
@@ -196,18 +188,34 @@ python SimulateNetworkAttack.py
 source ~/scikit-learn/(your-Initials)-threat-hunt-env/bin/activate
 ```
 
-5.2 Obtain `AIThreatHunting.py` from your instructor and ensure it's placed in your home directory.
+5.2 Obtain `AIThreatHunting.py` from your instructor or look in Desktop CTI-Labs folder, and ensure it's placed in your home directory.
 
-5.3 Execute AI threat hunting script:
+5.3 Open **AIThreatHunting** with Visua Studio Code
+  - type ` code ./AIThreatHunting.py `
+
+5.4 Verify the CSV file it will open is **NormalNetworkTraffic.csv** in first few lines of code
+
+5.5 Execute AI threat hunting script:
 ```bash
-python AIThreatHunting.py
+python3 -i AIThreatHunting.py
 ```
 
-5.4 Analyze outputs from the script to detect anomalies.
+5.6 Review the images and save them corresponding to the name of the diagram (i.e. Normal-Cluster Analysis..). Save the images to the CTI-Labs folder with **Normal-** as the prefix.
+
+5.7 Change the CSV File to **AttackedNetworkTraffic.csv** in the AIThreatHunting.py source code and save it.
+
+5.8 Execute AI threat hunting script:
+```bash
+python3 -i AIThreatHunting.py
+```
+
+5.9 Review the images and save them to the CTI-Labs folder with **Attack-** as the prefix
+
+5.10 Analyze output images from the script, compare to detect anomalies. What did you discover? How would you interpret the findings? Did the 0 and 1 groupings flip? Why?
 
 ![Network Traffic Clustering IP Destination-Source](image-18.png)
 
-This image shows the clustering of network traffic based on IP destination and source. The clusters represent different types of traffic, with the green cluster indicating potential attack traffic.
+This image shows the clustering of network traffic based on IP destination and source. The clusters represent different types of traffic, with the green cluster indicating potential positive attack traffic.
 
 ![Packet Length Distribution](image-19.png)
 
@@ -215,14 +223,22 @@ This image shows the clustering of network traffic based on IP destination and s
 
 5.5 Modify the AIThreatHunting.py script:
 
-Include additional features or visualizations as needed. Below are some options you can try: 
-- Change the AIThreatHunting.py script to use the normal traffic csv file for comparison.
-- Change the script to use your newly generated Attack traffic csv file instead of the existing one.
+**Include additional features:** 
 - Change the number of clusters in KMeans machine learning algorithm (line 22)
-- Use a Logistic regression algorithm to determine if traffic is normal or anomalous based on the NormalNetworkTraffic.csv file.
-- Use a Random Forest algorithm to determine if traffic is normal or anomalous based on the NormalNetworkTraffic.csv file.
-- Use a Gradient Boosting algorithm to determine if traffic is normal or anomalous based on the NormalNetworkTraffic.csv file.
+- Add in other fields from the packet capture, as new fields may have other data correlations
+- Aggregate the normaltraffic and attacktraffic into one dataset.
+  - Train a model to predict and detect normal versus an anomaly.
+    - Use a Logistic regression algorithm to determine if traffic is normal or anomalous based on the AggregateNetworkTraffic.csv file.
+    - Use a Random Forest algorithm to determine if traffic is normal or anomalous based on the AggregateNetworkTraffic.csv file.
+    - Use a Gradient Boosting algorithm to determine if traffic is normal or anomalous based on the AggregateNetworkTraffic.csv file.
+  - Determine which of the above models yeilds the best prediction.
 
+**Additional Visualization Ideas:**
+- Create ROC curves for each classification model to compare their performance and identify the optimal threshold
+- Generate confusion matrices as heatmaps to visualize prediction accuracy and false positive/negative rates
+- Plot feature importance scores to show which network characteristics contribute most to anomaly detection
+- Develop correlation heatmaps to identify relationships between different network traffic features
+- Create time-series plots showing traffic patterns over time to identify temporal anomalies
 
 ---
 

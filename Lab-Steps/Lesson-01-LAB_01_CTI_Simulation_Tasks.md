@@ -21,16 +21,6 @@ Students should have completed the introductory CTI lessons and understand basic
 
 An unknown hacker group has breached the Ministry of Defense (MOD)’s location systems for individual users. Your task is to work in "tiger teams" to investigate this breach, identify threat vectors, assess attacker intent, and develop a defensive strategy to protect key MOD assets.
 
-In your tiger team, answer the following questions:
-1. What immediate steps would you take to identify the breach?
-2. Who do you think the attackers are? What are their motivations?
-3. What attack vectors might they have used?
-4. What are the two most critical assets in the MOD lab environment? Why?
-5. What defensive strategies would you implement to protect these assets?
-6. How would you prioritize these strategies?
-7. What open-source tools would you use to gather intelligence on this breach?
-8. How would you document your findings and strategies for future reference?
-
 ---
 
 ## Lab Setup
@@ -87,7 +77,7 @@ In your tiger team, answer the following questions:
 
 ---
 
-### 🛡️ Task 4: Strategy Formulation (10 Minutes)
+### 🛡️ Task 4: Strategy Formulation (5 Minutes)
 
 **Objective:** Develop mitigation strategies to defend the MOD systems.
 

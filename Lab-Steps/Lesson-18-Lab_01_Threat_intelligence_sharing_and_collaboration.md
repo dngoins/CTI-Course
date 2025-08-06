@@ -57,11 +57,13 @@ Students divided into teams of 3-4
 
 **Steps:**
 
-2.1 Use provided threat intelligence platforms and SIEM tools.
+2.1 Use provided threat intelligence reports (Passwords found on the Malware-Traffic-Analysis website):
+- [2025-01-28-web-inject-and-malware-infection.pcap.zip](https://www.malware-traffic-analysis.net/2025/01/28/index.html)
+- [2025-01-31-VIP-Recovery-data-exfil-over-SMTP.pcap.zip](https://www.malware-traffic-analysis.net/2025/05/27/index.html)
 
-2.2 Gather intelligence from internal logs, external threat feeds, and recent incident reports.
+2.2 Gather intelligence from pcap files, internal logs, external threat feeds, and recent incident reports.
 
-2.3 Ensure data collected covers a broad spectrum of potential threats.
+2.3 Collaboratively analyze the collected data to identify key indicators of compromise (IOCs) and potential threats.
 
 2.4 Document initial findings clearly and concisely.
 
@@ -95,11 +97,13 @@ Students divided into teams of 3-4
 
 **Steps:**
 
-4.1 Collaboratively write the intelligence report.
+4.1 Open either the **Standard_NDR_Template_en_v0.9.docx**, **POLICY_Cybersecurity_incident_and_Threat_.docx**, or **Standard_APT-Standard_Template_en.docx**  word documents template and collaboratively write the intelligence report.
 
-4.2 Ensure clarity, conciseness, and appropriateness for the intended audience.
+4.2 Add the above report components: Executive Summary, Threat Landscape, Incident Analysis, Recommendations and Supporting data setcionts.
 
 4.3 Use provided templates to structure your report.
+
+4.4 Use ChatGPT to assist in drafting and refining the report content, ensuring clarity and professionalism.
 
 ---
 
@@ -111,7 +115,7 @@ Students divided into teams of 3-4
 
 5.1 Clearly identify the target audience for each version of the report.
 
-5.2 Tailor reports to meet specific stakeholder needs:
+5.2 Select a team to tailor reports to meet specific stakeholder needs:
 
 - **Security Teams:** Technical details and strategies.
 - **Executives:** Strategic overview and implications.

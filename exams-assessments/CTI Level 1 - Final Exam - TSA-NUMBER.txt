@@ -1,0 +1,244 @@
+STUDENT VERSION
+CTI Level 1 - Final Exam (20 Questions)
+
+TSA Number__________________________________
+
+
+
+1. What is the primary purpose of Cyber Threat Intelligence (CTI) in an organization's security strategy?
+
+A) To eliminate all software vulnerabilities at the source code level
+B) To offer legal representation for data breach lawsuits
+C) To gather and analyze information on potential threats for informed defense
+D) To outsource all incident response activities to external consultants
+
+Answer: ______
+
+
+
+
+2. Which statement BEST describes the difference between strategic and tactical intelligence?
+
+A) Strategic intelligence focuses on day-to-day threat alerts, while tactical intelligence guides long-term planning
+B) Strategic intelligence offers high-level, long-term insights for executives, whereas tactical intelligence provides technical details for immediate threat response
+C) Strategic intelligence is exclusively used by SOC analysts, while tactical intelligence is only for legal teams
+D) Strategic intelligence gathers open-source data, while tactical intelligence relies solely on human intelligence sources
+
+Answer: ______
+
+
+
+
+3. In the CTI process, which activity follows the collection and before dissemination?
+
+A) Data destruction
+B) Analysis to identify patterns and anomalies
+C) Immediate patch deployment
+D) Board-level sign-off on intelligence budgets
+
+Answer: ______
+
+
+
+
+4. Why might a threat actor focus on nation-state espionage within critical infrastructure sectors like energy or finance?
+
+A) Because these sectors generally have no cybersecurity measures
+B) To disrupt vital services and gain strategic advantage or intelligence
+C) To provide free technical support to government employees
+D) To enforce compliance with open-source software policies
+
+Answer: ______
+
+
+
+
+5. Which of the following BEST illustrates how open-source intelligence (OSINT) can benefit cyber threat analysts?
+
+A) Automating all patch management across servers
+B) Monitoring social media and public forums to discover attacker tactics
+C) Replacing firewall hardware with off-the-shelf devices
+D) Eliminating the need for internal security logs
+
+Answer: ______
+
+
+
+
+6. What is the MAIN advantage of sharing threat intelligence via structured formats (e.g., STIX) and transport mechanisms (e.g., TAXII)?
+
+A) It prevents security tools from receiving automatic updates
+B) It hinders communication among different security platforms
+C) It provides standardized data exchange, improving interoperability
+D) It ensures only one organization can benefit from the intelligence
+
+Answer: ______
+
+
+
+
+7. When analyzing Indicators of Compromise (IOCs), which detail would MOST likely be included as a network-based indicator?
+
+A) MD5 hash of a malicious executable
+B) Endpoint user login times
+C) IP address or domain associated with attacker command-and-control
+D) Physical lock combination on a server room door
+
+Answer: ______
+
+
+
+
+8. How does integrating CTI within a Security Operations Center (SOC) improve incident detection and response?
+
+A) By blocking all network traffic to external sites
+B) By providing contextual information about threats, enabling faster and more accurate alert prioritization
+C) By automating leadership's decision-making without human review
+D) By scheduling daily hardware replacements to avoid vulnerabilities
+
+Answer: ______
+
+
+
+
+9. Which BEST describes the concept of "threat hunting" in cybersecurity?
+
+A) Waiting for automated tools to generate alerts with no human investigation
+B) Relying solely on perimeter firewalls to block external traffic
+C) Proactively searching for hidden or advanced adversaries that have bypassed standard defenses
+D) Employing law enforcement agents to patrol corporate hallways
+
+Answer: ______
+
+
+
+
+10. Why is "feedback" an important step in the cyber threat intelligence cycle?
+
+A) It is exclusively used to remove outdated firewall rules
+B) It measures whether the intelligence led to immediate arrests
+C) It ensures the intelligence product is evaluated, updated, and refined based on its real-world effectiveness
+D) It encourages organizations to reduce CTI budgets after each major incident
+
+Answer: ______
+
+
+
+
+11. Which element is MOST characteristic of "operational" cyber threat intelligence?
+
+A) Strategic board-level recommendations about risk tolerance
+B) Detailed Indicators of Compromise, vulnerabilities, and immediate threat actor behaviors
+C) Quarterly financial loss estimates for compliance reporting
+D) Historical analysis of decade-old hacking tools with no current relevance
+
+Answer: ______
+
+
+
+
+12. In analyzing a wiper malware attack like Shamoon, which phase of the cyber attack lifecycle typically involves introducing the destructive payload onto systems?
+
+A) Reconnaissance
+B) Lateral movement
+C) Exploitation / Installation
+D) Post-incident review
+
+Answer: ______
+
+
+
+
+13. What is the MAIN benefit of using a framework like MITRE ATT&CK for cyber threat intelligence?
+
+A) It guarantees zero false positives for all security alerts
+B) It ensures only physical security incidents are handled
+C) It provides a standardized knowledge base of adversary tactics and techniques for improving detection
+D) It replaces all existing SIEM and endpoint monitoring tools
+
+Answer: ______
+
+
+
+
+14. Which of the following BEST describes how tactical intelligence is applied in a cybersecurity environment?
+
+A) It is exclusively for executive leadership to make high-level risk decisions
+B) It contains technical details (e.g., hashes, domains) that help security analysts detect threats in real-time
+C) It predicts geopolitical trends for the next 10 years of conflict zones
+D) It is used only by marketing teams to enhance brand reputation
+
+Answer: ______
+
+
+
+
+15. How does threat intelligence help in vulnerability management?
+
+A) By assigning random CVE numbers to software bugs
+B) By offering guaranteed exploit-proof systems with no patches needed
+C) By identifying which vulnerabilities attackers are currently exploiting, thus prioritizing patching efforts
+D) By disabling all user accounts temporarily to prevent any malicious access
+
+Answer: ______
+
+
+
+
+16. In the context of phishing campaigns, which element is MOST likely considered an IOC for detection and blocking?
+
+A) A memory allocation routine used by the Windows kernel
+B) A malicious sender email address or domain repeatedly used in the campaign
+C) Corporate HR policy documents posted on the intranet
+D) A legitimate security vendor signature update link
+
+Answer: ______
+
+
+
+
+17. Which factor is MOST important when selecting metrics to measure the success of a cyber threat intelligence program?
+
+A) Ensuring all metrics are purely qualitative with no numeric data
+B) Only tracking the number of installed antivirus tools
+C) Relevance to the organization's security objectives and decision-making needs
+D) Mandating that no negative findings appear in executive summaries
+
+Answer: ______
+
+
+
+
+18. In threat hunting, why is a hypothesis-driven approach valuable?
+
+A) Because it allows the organization to completely ignore known threat indicators
+B) It ensures hunts have a focused starting point, leveraging known adversary TTPs or suspicious activity patterns
+C) It mandates scanning only perimeter devices
+D) Because it strictly depends on data from external feeds without internal logs
+
+Answer: ______
+
+
+
+
+19. How does operational intelligence (e.g., daily threat briefings) typically support security teams?
+
+A) By making final CISO-level budget decisions
+B) By prioritizing resources for ongoing tasks and guiding immediate defensive actions
+C) By offering legal opinions on cybersecurity regulations
+D) By removing the need for continuous monitoring since daily briefs suffice
+
+Answer: ______
+
+
+
+
+20. What is the PRIMARY reason for an organization to share threat intelligence reports with external partners or ISACs?
+
+A) To prove the organization's data breach losses to insurance providers
+B) To undermine the competition by exposing their vulnerabilities
+C) To contribute to a collective defense, improving overall security across the community or sector
+D) To delay incident response until official guidelines are released
+
+Answer: ______
+
