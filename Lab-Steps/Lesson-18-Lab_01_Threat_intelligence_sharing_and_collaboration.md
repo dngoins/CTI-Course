@@ -43,11 +43,11 @@ Students divided into teams of 3-4
 
 **Steps:**
 
-1.1 Brief introduction on the significance of threat intelligence sharing and collaboration.
+1.1 The Instructor will provide a brief introduction on the significance of threat intelligence sharing and collaboration.
 
-1.2 Discuss the roles and information needs of various stakeholders (security teams, executives, external partners).
+1.2 The Instructor will discuss the roles and information needs of various stakeholders (security teams, executives, external partners).
 
-1.3 Assign students into teams of 3-4 members each.
+1.3 The Instructor will assign students into teams of 3-4 members each.
 
 ---
 

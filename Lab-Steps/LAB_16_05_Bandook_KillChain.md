@@ -31,7 +31,7 @@ In this lab, students will use the Cyber Kill Chain framework to analyze a real-
 **Steps:**
 
 1. Visit [https://www.malware-traffic-analysis.net/2023/08/01/index.html](https://www.malware-traffic-analysis.net/2023/08/01/index.html)
-2. Download the ZIP archive containing the PCAP and password ("infected_20230801").
+2. Download the ZIP archive containing the PCAP and password ("infected").
 3. Extract the contents and open the `.pcap` file in **Wireshark**.
 
 ---

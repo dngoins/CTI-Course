@@ -29,7 +29,9 @@ An employee at the Saudi Ministry of Defense accidentally sends an email contain
 
 **Questions:**
 - What type of threat is this? (Passive, Active, Accidental, Intentional)
+Accidental, may be assign as passive 
 - Explain why you classified it this way.
+human mistake 
 
 ---
 
@@ -38,7 +40,9 @@ A nation-state actor targets the Saudi Ministry of Defense to steal classified m
 
 **Questions:**
 - What type of threat is this? (Passive, Active, Accidental, Intentional)
+Intentional, active
 - Explain why you classified it this way.
+APTs for steal and spy
 
 ---
 
@@ -47,7 +51,9 @@ A terrorist organization launches a DoS attack on the Saudi Ministry of Defense'
 
 **Questions:**
 - What type of threat is this? (Passive, Active, Accidental, Intentional)
+Active, Intentional
 - Explain why you classified it this way.
+DDoS 
 
 ---
 

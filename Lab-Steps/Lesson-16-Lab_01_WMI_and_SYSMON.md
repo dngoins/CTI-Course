@@ -53,7 +53,7 @@ Approximately 30–40 minutes
 sysmon -accepteula -i sysmonconfig.xml
 ```
 
-> **Note**: Ensure `sysmonconfig.xml` is in the same directory or provide a full path.
+> **Note**: Ensure `sysmonconfig.xml` is in the same directory or provide a full path. You can find sysmonconfig in the same folder these instructions are located, or the assets folder.
 
 **1.3 Verify Installation:**
 
@@ -73,15 +73,26 @@ sc query sysmon
 
 **2.1 Create or Obtain a Configuration File:**
 
-- Acquire a Sysmon configuration XML file from the official Sysinternals website, or create your custom file to log relevant events (e.g., process creation, file changes, network connections).
+- Acquire another Sysmon configuration XML file from the official Sysinternals website, and name it **new_sysmonconfig.xml** and compare with the existing one notice the configurations (e.g., process creation, file changes, network connections).
 
 **2.2 Apply the Configuration:**
 
-- Apply your configuration by running:
+- You can apply your new configuration by running:
+  
+```cmd
+sysmon -c new_sysmonconfig.xml
+```
+
+
+**2.3 Reapply the original configuration:**
+
+- You can apply your new configuration by running:
   
 ```cmd
 sysmon -c sysmonconfig.xml
 ```
+
+**2.3 Let sysmon capture the events for a while and we'll come back to it**
 
 ---
 

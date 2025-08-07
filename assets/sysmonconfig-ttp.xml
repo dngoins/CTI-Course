@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sysmon schemaversion="4.82">
+  <!-- Enhanced Sysmon configuration for T1566.001 and T1204.001 detection -->
+  
+  <EventFiltering>
+    
+    <!-- T1566.001: Spearphishing Attachment Detection -->
+    <!-- Event ID 1: Process Creation - Focus on email attachment execution -->
+    <RuleGroup name="T1566.001-SpearphishingAttachment" groupRelation="or">
+      <ProcessCreate onmatch="include">
+        <!-- Suspicious processes spawned from email clients -->
+        <ParentImage condition="endswith">outlook.exe</ParentImage>
+        <ParentImage condition="endswith">thunderbird.exe</ParentImage>
+        <ParentImage condition="endswith">winmail.exe</ParentImage>
+        <!-- Suspicious file extensions commonly used in attachments -->
+        <Image condition="endswith">.scr</Image>
+        <Image condition="endswith">.pif</Image>
+        <Image condition="endswith">.com</Image>
+        <!-- Executables from temp/download directories -->
+        <Image condition="contains">\Temp\</Image>
+        <Image condition="contains">\Downloads\</Image>
+        <Image condition="contains">\AppData\Local\Temp\</Image>
+        <!-- Office applications spawning suspicious processes -->
+        <ParentImage condition="endswith">winword.exe</ParentImage>
+        <ParentImage condition="endswith">excel.exe</ParentImage>
+        <ParentImage condition="endswith">powerpnt.exe</ParentImage>
+        <!-- Command line with suspicious patterns -->
+        <CommandLine condition="contains">powershell -enc</CommandLine>
+        <CommandLine condition="contains">powershell -e </CommandLine>
+        <CommandLine condition="contains">cmd /c echo</CommandLine>
+        <CommandLine condition="contains">bitsadmin</CommandLine>
+        <CommandLine condition="contains">certutil -decode</CommandLine>
+      </ProcessCreate>
+    </RuleGroup>
+
+    <!-- T1204.001: Malicious Link Execution Detection -->
+    <!-- Event ID 3: Network Connection - Suspicious outbound connections -->
+    <RuleGroup name="T1204.001-MaliciousLink" groupRelation="or">
+      <NetworkConnect onmatch="include">
+        <!-- Browser processes connecting to suspicious destinations -->
+        <Image condition="endswith">chrome.exe</Image>
+        <Image condition="endswith">firefox.exe</Image>
+        <Image condition="endswith">msedge.exe</Image>
+        <Image condition="endswith">iexplore.exe</Image>
+      </NetworkConnect>
+    </RuleGroup>
+
+    <!-- Event ID 11: File Created - Malicious downloads -->
+    <RuleGroup name="T1566.001-T1204.001-FileCreation" groupRelation="or">
+      <FileCreate onmatch="include">
+        <!-- Suspicious files in download locations -->
+        <TargetFilename condition="contains">\Downloads\</TargetFilename>
+        <TargetFilename condition="contains">\Temp\</TargetFilename>
+        <TargetFilename condition="endswith">.zip</TargetFilename>
+        <TargetFilename condition="endswith">.rar</TargetFilename>
+        <TargetFilename condition="endswith">.7z</TargetFilename>
+        <TargetFilename condition="endswith">.iso</TargetFilename>
+        <TargetFilename condition="endswith">.vbs</TargetFilename>
+        <TargetFilename condition="endswith">.js</TargetFilename>
+        <TargetFilename condition="endswith">.jar</TargetFilename>
+        <TargetFilename condition="endswith">.hta</TargetFilename>
+        <TargetFilename condition="endswith">.scr</TargetFilename>
+        <TargetFilename condition="endswith">.pif</TargetFilename>
+      </FileCreate>
+    </RuleGroup>
+
+    <!-- Event ID 22: DNS Query - Malicious domains -->
+    <RuleGroup name="T1204.001-DNSQueries" groupRelation="or">
+      <DnsQuery onmatch="include">
+        <!-- Suspicious TLDs and patterns -->
+        <QueryName condition="endswith">.tk</QueryName>
+        <QueryName condition="endswith">.ml</QueryName>
+        <QueryName condition="endswith">.ga</QueryName>
+        <QueryName condition="endswith">.cf</QueryName>
+        <QueryName condition="contains">bit.ly</QueryName>
+        <QueryName condition="contains">tinyurl</QueryName>
+        <QueryName condition="contains">t.co</QueryName>
+        <!-- Domains with suspicious patterns -->
+        <QueryName condition="contains">update</QueryName>
+        <QueryName condition="contains">secure</QueryName>
+        <QueryName condition="contains">verify</QueryName>
+      </DnsQuery>
+    </RuleGroup>
+
+    <!-- Event ID 13: Registry modifications for persistence -->
+    <RuleGroup name="T1566.001-Persistence" groupRelation="or">
+      <RegistryEvent onmatch="include">
+        <!-- Monitor startup locations -->
+        <TargetObject condition="contains">CurrentVersion\Run</TargetObject>
+        <TargetObject condition="contains">CurrentVersion\RunOnce</TargetObject>
+        <TargetObject condition="contains">Winlogon</TargetObject>
+        <TargetObject condition="contains">Shell</TargetObject>
+      </RegistryEvent>
+    </RuleGroup>
+
+    <!-- Event ID 10: Process Access - Credential dumping detection -->
+    <RuleGroup name="T1566.001-ProcessAccess" groupRelation="or">
+      <ProcessAccess onmatch="include">
+        <!-- Focus on access to sensitive processes -->
+        <TargetImage condition="endswith">lsass.exe</TargetImage>
+        <TargetImage condition="endswith">winlogon.exe</TargetImage>
+        <TargetImage condition="endswith">csrss.exe</TargetImage>
+      </ProcessAccess>
+    </RuleGroup>
+
+    <!-- Event ID 8: CreateRemoteThread - Process injection detection -->
+    <RuleGroup name="T1566.001-RemoteThread" groupRelation="or">
+      <CreateRemoteThread onmatch="include">
+        <!-- Include all remote thread creation events for analysis -->
+      </CreateRemoteThread>
+    </RuleGroup>
+
+    <!-- Event ID 17: Pipe Created - Named pipe communication -->
+    <RuleGroup name="T1566.001-PipeCreated" groupRelation="or">
+      <PipeEvent onmatch="exclude">
+        <!-- Exclude common Windows pipes to focus on malicious ones -->
+        <PipeName condition="contains">lsass</PipeName>
+        <PipeName condition="contains">samss</PipeName>
+        <PipeName condition="contains">winlogon</PipeName>
+        <PipeName condition="contains">wkssvc</PipeName>
+        <PipeName condition="contains">srvsvc</PipeName>
+      </PipeEvent>
+    </RuleGroup>
+
+  </EventFiltering>
+</Sysmon>

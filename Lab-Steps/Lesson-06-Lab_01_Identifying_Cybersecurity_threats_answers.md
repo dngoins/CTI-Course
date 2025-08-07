@@ -5,7 +5,7 @@
 ## Answer Key and Explanation for Instructor: 
 
 ### Scenario 1: Unintentional Data Leak
-- **Type of Threat:** Accidental
+- **Type of Threat:** Accidental and Passive
 - **Explanation:** This threat occurs unintentionally. The employee did not intentionally send sensitive information to the wrong recipient, making it an accidental threat.
 
 ### Scenario 2: Cyber Espionage
