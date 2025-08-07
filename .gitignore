@@ -26,6 +26,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -172,3 +173,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# CTI Student folder - ignore all contents regardless of case
+[Ss][Tt][Uu][Dd][Ee][Nn][Tt][Cc][Oo][Uu][Rr][Ss][Ee][Ww][Aa][Rr][Ee]/
+[Ii][Nn][Ss][Tr][Uu][Cc][Tt][Oo][Rr][Cc][Oo][Uu][Rr][Ss][Ee][Ww][Aa][Rr][Ee]
